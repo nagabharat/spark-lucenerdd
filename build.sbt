@@ -33,7 +33,12 @@ scalacOptions ++= Seq("-deprecation",
   "-Ywarn-value-discard",
   "-language:implicitConversions")
 
-javacOptions ++= Seq("-Xlint", "-Xms512M", "-Xmx2048M", "-XX:MaxPermSize=2048M", "-XX:+CMSClassUnloadingEnabled")
+javacOptions ++= Seq("-Xlint",
+  "-Xms512M",
+  "-Xmx2048M",
+  "-XX:MaxPermSize=2048M",
+  "-XX:+CMSClassUnloadingEnabled"
+)
 
 
 // Add jcenter repo
@@ -75,7 +80,7 @@ pomExtra := (
   </developers>
 )
 
-val luceneV = "5.5.3"
+val luceneV = "6.2.0"
 
 spName := "zouzias/spark-lucenerdd"
 sparkVersion := "2.0.2"
@@ -99,6 +104,7 @@ val scalatest                 = "org.scalatest"                  %% "scalatest" 
 val joda_time                 = "joda-time"                      % "joda-time"                 % "2.9.4"
 val joda_convert              = "org.joda"                       % "joda-convert"              % "1.8.1"
 val algebird                  = "com.twitter"                    %% "algebird-core"            % "0.12.2"
+val spatial4j                 = "org.locationtech.spatial4j"     % "spatial4j"                 % "0.6"
 
 val typesafe_config           = "com.typesafe"                   % "config"                    % "1.2.1"
 
@@ -107,6 +113,7 @@ val lucene_analyzers          = "org.apache.lucene"              % "lucene-analy
 val lucene_query_parsers      = "org.apache.lucene"              % "lucene-queryparser"        % luceneV
 val lucene_expressions        = "org.apache.lucene"              % "lucene-expressions"        % luceneV
 val lucene_spatial            = "org.apache.lucene"              % "lucene-spatial"            % luceneV
+val lucene_spatial_extras     = "org.apache.lucene"              % "lucene-spatial-extras"     % luceneV
 
 val jts                       = "com.vividsolutions"             % "jts"                       % "1.13"
 // scalastyle:on
@@ -120,6 +127,8 @@ libraryDependencies ++= Seq(
   lucene_query_parsers,
   typesafe_config,
   lucene_spatial,
+  lucene_spatial_extras,
+  spatial4j,
   jts,
   joda_time,
   joda_convert, // To avoid warning: Class org.joda.convert.ToString not found

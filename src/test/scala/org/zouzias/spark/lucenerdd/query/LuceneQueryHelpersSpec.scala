@@ -60,7 +60,7 @@ class LuceneQueryHelpersSpec extends FlatSpec
     val doc = new Document()
     doc.add(new StringField("_1", text, Store.YES))
     doc.add(new FacetField(s"_1${FacetedLuceneRDD.FacetTextFieldSuffix}", text))
-    doc.add(new IntField("_2", pos, Store.YES))
+    doc.add(new IntPoint("_2", pos))
     doc.add(new FacetField(TestFacetName, pos.toString))
     doc
   }
