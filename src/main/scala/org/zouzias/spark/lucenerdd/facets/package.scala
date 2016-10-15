@@ -81,18 +81,22 @@ package object facets {
         addTextFacetField(doc, fName, x)
       case x: Long =>
         doc.add(new LongPoint(fName, x))
+        doc.add(new StoredField(fName, x))
         doc.add(new NumericDocValuesField(s"${fName} ${FacetedLuceneRDD.FacetNumericFieldSuffix}",
           x))
       case x: Int =>
         doc.add(new IntPoint(fName, x))
+        doc.add(new StoredField(fName, x))
         doc.add(new NumericDocValuesField(s"${fName}${FacetedLuceneRDD.FacetNumericFieldSuffix}",
           x.toLong))
       case x: Float =>
         doc.add(new FloatPoint(fName, x))
+        doc.add(new StoredField(fName, x))
         doc.add(new FloatDocValuesField(s"${fName}${FacetedLuceneRDD.FacetNumericFieldSuffix}",
           x))
       case x: Double =>
         doc.add(new DoublePoint(fName, x))
+        doc.add(new StoredField(fName, x))
         doc.add(new DoubleDocValuesField(s"${fName}${FacetedLuceneRDD.FacetNumericFieldSuffix}",
           x))
     }

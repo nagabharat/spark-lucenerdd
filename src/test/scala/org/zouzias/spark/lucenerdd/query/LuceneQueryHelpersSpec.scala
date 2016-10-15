@@ -61,11 +61,13 @@ class LuceneQueryHelpersSpec extends FlatSpec
     doc.add(new StringField("_1", text, Store.YES))
     doc.add(new FacetField(s"_1${FacetedLuceneRDD.FacetTextFieldSuffix}", text))
     doc.add(new IntPoint("_2", pos))
+    doc.add(new StoredField("_2", pos))
     doc.add(new FacetField(TestFacetName, pos.toString))
     doc
   }
 
   "LuceneQueryHelpers.fields" should "return the list of fields" in {
+    LuceneQueryHelpers.fields(indexSearcher).foreach(println)
     LuceneQueryHelpers.fields(indexSearcher) should equal (Set("_1", "_2"))
   }
 
