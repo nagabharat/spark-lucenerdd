@@ -97,16 +97,16 @@ testSparkVersion := sys.props.get("spark.testVersion").getOrElse(sparkVersion.va
 
 
 // scalastyle:off
-val specs2_core               = "org.specs2"                     %% "specs2-core"             % "2.3.13" % "test"
+val specs2_core               = "org.specs2"                     %% "specs2-core"             % "3.8.5" % "test"
 val scala_check               = "org.scalacheck"                 %% "scalacheck"              % "1.12.2" % "test"
-val scalatest                 = "org.scalatest"                  %% "scalatest"                % "2.2.6" % "test"
+val scalatest                 = "org.scalatest"                  %% "scalatest"                % "3.0.0" % "test"
 
 val joda_time                 = "joda-time"                      % "joda-time"                 % "2.9.4"
 val joda_convert              = "org.joda"                       % "joda-convert"              % "1.8.1"
 val algebird                  = "com.twitter"                    %% "algebird-core"            % "0.12.2"
 val spatial4j                 = "org.locationtech.spatial4j"     % "spatial4j"                 % "0.6"
 
-val typesafe_config           = "com.typesafe"                   % "config"                    % "1.2.1"
+val typesafe_config           = "com.typesafe"                   % "config"                    % "1.3.1"
 
 val lucene_facet              = "org.apache.lucene"              % "lucene-facet"              % luceneV
 val lucene_analyzers          = "org.apache.lucene"              % "lucene-analyzers-common"   % luceneV
