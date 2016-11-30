@@ -67,7 +67,6 @@ class LuceneQueryHelpersSpec extends FlatSpec
   }
 
   "LuceneQueryHelpers.fields" should "return the list of fields" in {
-    LuceneQueryHelpers.fields(indexSearcher).foreach(println)
     LuceneQueryHelpers.fields(indexSearcher) should equal (Set("_1", "_2"))
   }
 
